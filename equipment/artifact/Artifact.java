@@ -62,8 +62,8 @@ public abstract class Artifact extends Equipment {
         Double mainStatValue = this.stats.get(mainStatName);
 
         StringBuilder sb = new StringBuilder();
-        sb.append(this.getClass().getSimpleName()).append("\n");
-        sb.append(mainStatName).append(" : ").append(mainStatValue).append(" *MAIN STAT\n")
+        sb.append(this.getClass().getSimpleName()).append("\n").append("* ");
+        sb.append(mainStatName.toUpperCase()).append(" : ").append(mainStatValue).append(" *\n")
                 .append(substat1).append(" : ").append(stats.get(substat1)).append("\n")
                 .append(substat2).append(" : ").append(stats.get(substat2)).append("\n")
                 .append(substat3).append(" : ").append(stats.get(substat3)).append("\n")

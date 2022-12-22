@@ -1,5 +1,11 @@
 package equipment.artifact;
 
+import character.Character;
+import equipment.CalculateDamage;
+import equipment.artifactset.ArtifactSet;
+import equipment.artifactset.WandererTroupe;
+import equipment.weapon.AmosBow;
+
 public class Test {
     public static void main(String[] args) {
         Artifact plume1 = new Plume();
@@ -8,19 +14,20 @@ public class Test {
         Artifact circlet1 = new Circlet();
         Artifact flower1 = new Flower();
 
-        plume1.setSubstat1("critical rate", 0.15).setSubstat2("critical damage", 0.3)
-                .setSubstat3("atk percentage", 0.15).setSubstat4("elemental mastery", 50.0);
-        flower1.setSubstat1("critical rate" , 0.12).setSubstat2("critical damage", 0.24)
-                .setSubstat3("atk percentage", 0.2).setSubstat4("elemental mastery", 30.0);
+
+        plume1.setSubstat1("critical rate", 0.086).setSubstat2("critical damage", 0.155)
+                .setSubstat3("atk percentage", 0.058).setSubstat4("def fixed", 44.0);
+        flower1.setSubstat1("critical rate" , 0.07).setSubstat2("critical damage", 0.21)
+                .setSubstat3("atk fixed", 16.0).setSubstat4("def fixed", 44.0);
         sand1.setMainStat("atk percentage", 0.466);
-        sand1.setSubstat1("critical rate", 0.078).setSubstat2("critical damage", 0.34)
-                .setSubstat3("elemental mastery", 30.0).setSubstat4("atk percentage", 0.07);
+        sand1.setSubstat1("critical rate", 0.097).setSubstat2("critical damage", 0.07)
+                .setSubstat3("atk fixed", 49.0).setSubstat4("def percentage", 0.066);
         goblet1.setMainStat("cryo bonus", 0.466);
-        goblet1.setSubstat1("critical rate", 0.078).setSubstat2("critical damage", 0.34)
-                .setSubstat3("elemental mastery", 30.0).setSubstat4("atk percentage", 0.07);
-        circlet1.setMainStat("critical damage", 0.616);
-        circlet1.setSubstat1("critical rate", 0.078).setSubstat2("critical damage", 0.34)
-                .setSubstat3("elemental mastery", 30.0).setSubstat4("atk percentage", 0.07);
+        goblet1.setSubstat1("critical rate", 0.066).setSubstat2("critical damage", 0.155)
+                .setSubstat3("def percentage", 0.109).setSubstat4("hp fixed", 478.0);
+        circlet1.setMainStat("critical damage", 0.622);
+        circlet1.setSubstat1("critical rate", 0.136).setSubstat2("hp percentage", 0.053)
+                .setSubstat3("recharge", 0.117).setSubstat4("def percentage", 0.124);
 
         System.out.println(plume1);
         System.out.println(sand1);
@@ -28,6 +35,15 @@ public class Test {
         System.out.println(circlet1);
         System.out.println(flower1);
 
+        Character ganyu = new Character(9796.0, 334.0, 630.0, 0.0, 0.0, 50.0, 100.0);
+        ganyu.equipArtifact(plume1);
+        ganyu.equipArtifact(flower1);
+        ganyu.equipArtifact(goblet1);
+        ganyu.equipArtifact(circlet1);
+        ganyu.equipArtifact(sand1);
 
+        ganyu.equipWeapon(new AmosBow());
+        CalculateDamage calculateDamage = new CalculateDamage(ganyu, new WandererTroupe());
+        System.out.println(calculateDamage.getTotalAtk());
     }
 }

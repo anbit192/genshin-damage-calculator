@@ -1,10 +1,9 @@
-package equipment.artifact;
-
-import calculate.CalculateRawDamage;
+import calculate.RawDamage;
 import calculate.VisitorCalculator;
 import calculate.VisitorDamage;
 import character.Character;
-import calculate.CalculateDamage;
+import calculate.Damage;
+import equipment.artifact.*;
 import equipment.artifactset.WandererTroupe;
 import equipment.weapon.AmosBow;
 
@@ -46,11 +45,11 @@ public class Test {
 
         ganyu.equipWeapon(new AmosBow());
 
-        CalculateDamage calculateDamage = new CalculateRawDamage(ganyu, new WandererTroupe(), 0.1, 0.5, 0.0, 3.92);
-        System.out.println("Total Atk: " + calculateDamage.getTotalAtk());
-        System.out.println("Total Percentage Bonus: " + calculateDamage.getTotalBonusPercentageDamage());
+        Damage damage = new RawDamage(ganyu, new WandererTroupe(), 0.1, 0.5, 0.0, 3.92);
+        System.out.println("Total Atk: " + damage.getTotalAtk());
+        System.out.println("Total Percentage Bonus: " + damage.getTotalBonusPercentageDamage());
         VisitorCalculator visitor = new VisitorDamage();
-        System.out.println("Raw Damage: " + calculateDamage.calculate(visitor)
+        System.out.println("Raw Damage: " + damage.calculate(visitor)
         );
     }
 }

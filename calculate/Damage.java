@@ -4,7 +4,7 @@ import character.Character;
 import equipment.artifact.Artifact;
 import equipment.artifactset.ArtifactSet;
 
-public abstract class CalculateDamage {
+public abstract class Damage {
     private Character character;
     private ArtifactSet artifactSet;
     private double enemyResMult;
@@ -12,7 +12,7 @@ public abstract class CalculateDamage {
     private double damageReduction;
     private double skillPercentage;
 
-    public CalculateDamage(Character character, ArtifactSet artifactSet, double enemyResMult, double enemyDefMult
+    public Damage(Character character, ArtifactSet artifactSet, double enemyResMult, double enemyDefMult
             , double damageReduction, double skillPercentage) {
         this.character = character;
         this.artifactSet = artifactSet;

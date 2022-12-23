@@ -2,7 +2,7 @@ package calculate;
 
 public class VisitorDamage implements VisitorCalculator {
     @Override
-    public double visit(CalculateRawDamage calculateRawDamage) {
+    public double visit(RawDamage calculateRawDamage) {
 
         return calculateRawDamage.getTotalAtk() * (1 + calculateRawDamage.getTotalBonusPercentageDamage() - calculateRawDamage.getDamageReduction()) *
                 (1 + calculateRawDamage.getTotalCriticalDamage()) * calculateRawDamage.getSkillPercentage() *
@@ -10,7 +10,7 @@ public class VisitorDamage implements VisitorCalculator {
     }
 
     @Override
-    public double visit(CalculateReactionDamage calculateReactionDamage) {
+    public double visit(ReactionDamage calculateReactionDamage) {
         return 0.0;
     }
 }

@@ -17,6 +17,8 @@ public class Character {
     private List<Artifact> artifacts;
     private Weapon weapon;
 
+    private double bonusPercentageDamage;
+
     public Character(double hp, double baseAtk, double defense, double elementalMastery, double criticalRate, double criticalDamage, double recharge) {
         this.artifacts = new ArrayList<>();
         this.hp = hp;
@@ -30,6 +32,14 @@ public class Character {
 
     public Character() {
         this.artifacts = new ArrayList<>();
+    }
+
+    public double getBonusPercentageDamage() {
+        return bonusPercentageDamage;
+    }
+
+    public void setBonusPercentageDamage(double bonusPercentageDamage) {
+        this.bonusPercentageDamage = bonusPercentageDamage;
     }
 
     public List<Artifact> getArtifacts() {
@@ -108,6 +118,7 @@ public class Character {
 
     public void equipArtifact(Artifact artifact) {
         artifacts.add(artifact);
+
     }
 
     public void equipWeapon(Weapon weapon) {

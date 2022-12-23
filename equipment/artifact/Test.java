@@ -1,8 +1,10 @@
 package equipment.artifact;
 
+import calculate.CalculateRawDamage;
+import calculate.VisitorCalculator;
+import calculate.VisitorDamage;
 import character.Character;
-import equipment.CalculateDamage;
-import equipment.artifactset.ArtifactSet;
+import calculate.CalculateDamage;
 import equipment.artifactset.WandererTroupe;
 import equipment.weapon.AmosBow;
 
@@ -22,7 +24,7 @@ public class Test {
         sand1.setMainStat("atk percentage", 0.466);
         sand1.setSubstat1("critical rate", 0.097).setSubstat2("critical damage", 0.07)
                 .setSubstat3("atk fixed", 49.0).setSubstat4("def percentage", 0.066);
-        goblet1.setMainStat("cryo bonus", 0.466);
+        goblet1.setMainStat("elemental bonus", 0.466);
         goblet1.setSubstat1("critical rate", 0.066).setSubstat2("critical damage", 0.155)
                 .setSubstat3("def percentage", 0.109).setSubstat4("hp fixed", 478.0);
         circlet1.setMainStat("critical damage", 0.622);
@@ -35,7 +37,7 @@ public class Test {
         System.out.println(circlet1);
         System.out.println(flower1);
 
-        Character ganyu = new Character(9796.0, 334.0, 630.0, 0.0, 0.0, 50.0, 100.0);
+        Character ganyu = new Character(9796.0, 334.0, 630.0, 0.0, 0.0, 0.884, 100.0);
         ganyu.equipArtifact(plume1);
         ganyu.equipArtifact(flower1);
         ganyu.equipArtifact(goblet1);
@@ -43,7 +45,12 @@ public class Test {
         ganyu.equipArtifact(sand1);
 
         ganyu.equipWeapon(new AmosBow());
-        CalculateDamage calculateDamage = new CalculateDamage(ganyu, new WandererTroupe());
-        System.out.println(calculateDamage.getTotalAtk());
+
+        CalculateDamage calculateDamage = new CalculateRawDamage(ganyu, new WandererTroupe(), 0.1, 0.5, 0.0, 3.92);
+        System.out.println("Total Atk: " + calculateDamage.getTotalAtk());
+        System.out.println("Total Percentage Bonus: " + calculateDamage.getTotalBonusPercentageDamage());
+        VisitorCalculator visitor = new VisitorDamage();
+        System.out.println("Raw Damage: " + calculateDamage.calculate(visitor)
+        );
     }
 }

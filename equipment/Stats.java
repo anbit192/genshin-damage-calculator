@@ -18,13 +18,7 @@ public abstract class Stats {
         stats.put("critical damage", 0.0);
         stats.put("recharge", 0.0);
         stats.put("elemental mastery", 0.0);
-        stats.put("cryo bonus", 0.0);
-        stats.put("pyro bonus", 0.0);
-        stats.put("hydro bonus", 0.0);
-        stats.put("electro bonus", 0.0);
-        stats.put("geo bonus", 0.0);
-        stats.put("dendro bonus", 0.0);
-        stats.put("anemo bonus", 0.0);
+        stats.put("elemental bonus", 0.0);
         stats.put("damage bonus", 0.0);
     }
 

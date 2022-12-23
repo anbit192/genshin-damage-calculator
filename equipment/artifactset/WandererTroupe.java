@@ -1,6 +1,9 @@
 package equipment.artifactset;
 
 public class WandererTroupe extends ArtifactSet {
+    public WandererTroupe() {
+        super();
+    }
 
     @Override
     public void setEffectSet() {

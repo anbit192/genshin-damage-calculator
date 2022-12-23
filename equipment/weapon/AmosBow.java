@@ -5,6 +5,7 @@ public class AmosBow extends Weapon {
     public AmosBow() {
         super(608);
         this.setSubstat("atk percentage", 0.496);
+        this.setWeaponEffect();
     }
 
     @Override

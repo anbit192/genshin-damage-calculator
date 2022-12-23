@@ -1,6 +1,6 @@
 package calculate;
 
-public class VisitorDamage implements VisitorCalculator {
+public class CalculatorDamage implements VisitorCalculator {
     @Override
     public double visit(RawDamage calculateRawDamage) {
 

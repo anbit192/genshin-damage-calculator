@@ -4,9 +4,9 @@ import character.Character;
 import equipment.artifactset.ArtifactSet;
 
 public class RawDamage extends Damage {
-    public RawDamage(Character character, ArtifactSet artifactSet, double enemyResMult, double enemyDefMult,
+    public RawDamage(Character character, double enemyResMult, double enemyDefMult,
                      double damageReduction, double skilldamage) {
-        super(character, artifactSet, enemyResMult, enemyDefMult, damageReduction, skilldamage);
+        super(character, enemyResMult, enemyDefMult, damageReduction, skilldamage);
     }
 
     @Override

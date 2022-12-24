@@ -9,6 +9,7 @@ public abstract class Weapon extends Equipment {
         super();
         this.mainStat = "atk fixed";
         this.stats.put("atk fixed", baseAtk);
+        this.setWeaponEffect();
     }
 
     public void setSubstat(String statName, Double value) {

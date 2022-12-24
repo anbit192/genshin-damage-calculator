@@ -1,11 +1,12 @@
-package equipment.weapon;
+package equipment.weapon.bow;
 
-public class AmosBow extends Weapon {
+import equipment.weapon.Weapon;
+
+public class AmosBow extends Bow {
 
     public AmosBow() {
         super(608);
         this.setSubstat("atk percentage", 0.496);
-        this.setWeaponEffect();
     }
 
     @Override

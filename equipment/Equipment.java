@@ -1,6 +1,6 @@
 package equipment;
 
-public abstract class Equipment extends Stats{
+public abstract class Equipment extends Stats {
     protected String mainStat;
 
     public Equipment() {
